@@ -14,10 +14,10 @@
 
     @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
- body { background: url(https://instapik.ru/wp-content/uploads/2020/08/dark-background.jpg); }
+ body { background: url(https://besthqwallpapers.com/img/original/141523/blue-background-with-purple-triangles-blue-bastraction-background-triangles-abstraction-background-creative-blue-background.jpg); }
 
 #texts{
-    color: #D6169D;
+    color: #c700c7;
     text-align: center;
     font-size: 40px;
 font-family: "Lobster", sans-serif;
@@ -31,7 +31,7 @@ font-family: "Lobster", sans-serif;
 .form {
   position: relative;
   z-index: 1;
-  background: #010A1B;
+  background: #010E28;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
@@ -41,7 +41,7 @@ font-family: "Lobster", sans-serif;
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
-  background: #3CCDE3;
+  background: #010A1B;
   width: 100%;
   border: 0;
   margin: 0 0 15px;
@@ -53,11 +53,11 @@ font-family: "Lobster", sans-serif;
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #C0117A;
+  background: #3BBBE9;
   width: 100%;
   border: 0;
   padding: 15px;
-  color: #FFFFFF;
+  color: #3BBBE9;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
@@ -111,6 +111,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
 }
+ .links > a {
+              font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #3BBBE9;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+            }
  
 </style>
 <body>
@@ -123,10 +137,21 @@ body {
     
     <form class="login-form">
       
-                          <button  href="https://laravel.com/docs">Авторизация</button>
-                    <br>
-                    <br>
-                    <button href="https://laracasts.com">Регистрация</button>
+                     @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Авторизация</a>
+<br>
+<br>
+<br>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Регистрация</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
                    </form>
   </div>
 </div>
